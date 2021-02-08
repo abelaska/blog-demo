@@ -16,9 +16,9 @@
   "dependencies": {
     "@headlessui/react": "0.2.0",
     "@prisma/client": "2.16.0",
-    "ajv": "7.0.0-rc.1",
-    "ajv-formats ": "0.6.1",
-    "ajv-keywords": "4.0.0-beta.3",
+    "ajv": "7.0.4",
+    "ajv-formats": "1.5.1",
+    "ajv-keywords": "4.0.0",
     "base-x": "3.0.8",
     "date-fns": "2.16.1",
     "escape-html": "1.0.3",

@@ -1,17 +1,15 @@
 import React, { useCallback } from 'react';
-import { createEditor, Editor, Transforms, Node, Descendant, Element as SlateElement, BaseElement } from 'slate';
+import { createEditor, Editor, Transforms, Node, Descendant, Element as SlateElement } from 'slate';
 import { Slate, Editable, withReact, ReactEditor, RenderElementProps } from 'slate-react';
 import { withHistory } from 'slate-history';
 import { EMPTY, Block, BlockType } from '@/common/editor';
 import { defaultPostTitle } from '@/common/post';
 
-// https://docs.slatejs.org/v/v0.47/slate-react/editor
-// https://docs.slatejs.org/concepts/09-serializing
-
 const Element = (props: RenderElementProps) => {
   const { attributes, children, element, ...other } = props;
+  const block = element as Block;
 
-  switch (element.type) {
+  switch (block.type) {
     case BlockType.TITLE:
       return (
         <h2 className="mb-4 font-bold text-2xl post-title" {...attributes}>
@@ -55,7 +53,7 @@ const withLayout = <T extends Editor>(editor: T): T => {
         const child = childNode as Block;
 
         if (SlateElement.isElement(child) && child.type !== BlockType.META && child.type !== type) {
-          const newProperties: Partial<SlateElement> = { type };
+          const newProperties: Partial<SlateElement & { type: BlockType }> = { type };
           Transforms.setNodes(editor, newProperties, { at: childPath });
         }
       }
