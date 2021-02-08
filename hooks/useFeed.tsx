@@ -1,10 +1,12 @@
 import { useSWRInfinite } from 'swr';
-import { fetcher } from '@/common/client';
+import { fetcher, errorToMessage } from '@/common/client';
 import { apiFeedUrl, urlWithQuery } from '@/common/urls';
+import { useNotify } from '@/components/Notifications';
 
 const take = 5;
 
 export const useFeed = () => {
+  const { notifyError } = useNotify();
   const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite((pageIndex, previousPageData) => {
     if (previousPageData && !previousPageData.posts) {
       return null;
@@ -34,7 +36,9 @@ export const useFeed = () => {
       .filter((p) => p?.length)
       .reduce((r, v) => r.concat(v), []) || [];
 
-  // FIXME handle error
+  if (error) {
+    notifyError(errorToMessage(error.code), 'Failed to load published posts');
+  }
 
   return {
     posts,

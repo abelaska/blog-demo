@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router';
 import { useSWRInfinite } from 'swr';
-import { fetcher } from '@/common/client';
+import { fetcher, errorToMessage } from '@/common/client';
 import { apiPostsUrl, urlWithQuery } from '@/common/urls';
+import { useNotify } from '@/components/Notifications';
 
 const take = 20;
 
 export const usePosts = () => {
   const router = useRouter();
+  const { notifyError } = useNotify();
 
   const published = ((router.query?.published as string) || 'false').toLocaleLowerCase() === 'true';
 
@@ -40,7 +42,9 @@ export const usePosts = () => {
       .filter((p) => p?.length)
       .reduce((r, v) => r.concat(v), []) || [];
 
-  // FIXME handle error
+  if (error) {
+    notifyError(errorToMessage(error.code), 'Failed to load posts');
+  }
 
   return {
     posts,

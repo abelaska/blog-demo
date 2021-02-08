@@ -1,7 +1,6 @@
 import React, { useContext, useReducer, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { loadToken, saveToken } from '@/common/client/token';
-
 interface State {
   token: string | null;
 }
