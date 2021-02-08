@@ -1,0 +1,49 @@
+@tailwind base;
+
+/* Write your own custom base styles here */
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
+
+.no-button {
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
+}
+
+.rotate-90 {
+  --tw-rotate: 90deg;
+  transform: rotate(90deg);
+}
+
+.post-title span[data-slate-node='text'] span[data-slate-leaf='true'] {
+  @apply relative;
+}
+.post-title
+  span[data-slate-node='text']
+  span[data-slate-leaf='true']
+  span[data-slate-zero-width='n'][data-slate-length='0']:before {
+  content: '(Untitled)';
+  @apply text-gray-300;
+  @apply absolute;
+}
+
+.post-message:first-of-type span[data-slate-node='text'] span[data-slate-leaf='true'] {
+  @apply relative;
+}
+.post-message:first-of-type
+  span[data-slate-node='text']
+  span[data-slate-leaf='true']
+  span[data-slate-zero-width='n'][data-slate-length='0']:before {
+  content: 'Begin writing your post...';
+  @apply text-gray-300;
+  @apply absolute;
+  @apply whitespace-nowrap;
+}
