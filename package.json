@@ -13,7 +13,7 @@
     "prisma:deploy": "yarn prisma migrate deploy --preview-feature",
     "prisma:dev": "yarn prisma migrate dev --preview-feature",
     "cy:open": "cypress open",
-    "cy:ci": "cypress run",
+    "cy:ci": "cypress run --headless --config video=false",
     "e2e": "start-test dev 3000 cy:open",
     "e2e:ci": "start-test dev 3000 cy:ci"
   },
