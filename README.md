@@ -20,8 +20,14 @@ Run E2E tests manually:
 yarn && yarn e2e
 ```
 
-Run E2E tests CI:
+Run unit tests manually:
 
 ```
-yarn && yarn e2e:ci
+yarn && yarn test
+```
+
+Run unit and E2E tests in CI mode:
+
+```
+yarn && yarn test:ci
 ```

@@ -16,7 +16,7 @@
     "cy:ci": "cypress run --headless --config video=false",
     "e2e": "start-test dev 3000 cy:open",
     "e2e:ci": "start-test dev 3000 cy:ci",
-    "test": "jest --watch",
+    "test": "jest",
     "test:ci": "jest --ci && yarn e2e:ci"
   },
   "dependencies": {
