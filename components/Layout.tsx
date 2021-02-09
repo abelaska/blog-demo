@@ -210,6 +210,7 @@ export default function Layout({ children, title = 'Blog' }: Props) {
 
               <div className="ml-4 -mr-3.5">
                 <IconButton
+                  data-cy="btn-new-draft"
                   label=""
                   border={false}
                   invert={true}
@@ -236,7 +237,7 @@ export default function Layout({ children, title = 'Blog' }: Props) {
             </div>
 
             <div className="flex-1 relative z-0 flex overflow-hidden">
-              <nav className="flex-1 overflow-y-auto" aria-label="Sidebar">
+              <nav className="flex-1 overflow-y-auto" aria-label="Sidebar" data-cy="posts-list">
                 <PostList />
               </nav>
             </div>

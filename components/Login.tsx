@@ -49,6 +49,7 @@ export const Login = () => {
               <input
                 required
                 autoFocus
+                data-cy="input-pwd"
                 aria-label="Password"
                 placeholder="Password"
                 name="password"
@@ -64,6 +65,7 @@ export const Login = () => {
           {errorMsg ? <p className="mt-2 text-xs text-red-500">{errorMsg}</p> : null}
 
           <PrimaryButton
+            data-cy="btn-login"
             type="submit"
             disabled={disabled}
             progress={submiting}

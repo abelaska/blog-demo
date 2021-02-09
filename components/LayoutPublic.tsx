@@ -43,9 +43,10 @@ export default function Layout({ children, title = 'Blog' }: Props) {
             </Link>
           </div>
           <div className="flex items-center justify-center space-x-4">
-            <WhiteButton label="Administration" href="/admin" />
+            <WhiteButton label="Administration" href="/admin" data-cy="btn-admin" />
             {loggedIn ? (
               <IconButton
+                data-cy="btn-logout"
                 label=""
                 border={false}
                 invert={false}

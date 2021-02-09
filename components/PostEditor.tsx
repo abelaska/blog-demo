@@ -78,7 +78,7 @@ export const PostEditor = ({ editor, className, onChange, value = EMPTY }: PostE
   const renderElement = useCallback((props) => <Element {...props} />, []);
   return (
     <Slate editor={editor} value={value} onChange={onChange}>
-      <Editable autoFocus spellCheck className={className} renderElement={renderElement} />
+      <Editable autoFocus spellCheck className={className} renderElement={renderElement} data-cy="editor" />
     </Slate>
   );
 };

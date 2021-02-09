@@ -8,10 +8,14 @@
     "build": "yarn prisma:generate && next build",
     "start": "yarn prisma:deploy && next start",
     "type-check": "tsc",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet",
     "prisma:generate": "yarn prisma generate",
     "prisma:deploy": "yarn prisma migrate deploy --preview-feature",
-    "prisma:dev": "yarn prisma migrate dev --preview-feature"
+    "prisma:dev": "yarn prisma migrate dev --preview-feature",
+    "cy:open": "cypress open",
+    "cy:ci": "cypress run",
+    "e2e": "start-test dev 3000 cy:open",
+    "e2e:ci": "start-test dev 3000 cy:ci"
   },
   "dependencies": {
     "@headlessui/react": "0.2.0",
@@ -46,6 +50,7 @@
     "@typescript-eslint/parser": "4.14.2",
     "@typescript-eslint/eslint-plugin": "4.14.2",
     "autoprefixer": "10.1.0",
+    "cypress": "6.4.0",
     "eslint": "7.19.0",
     "eslint-config-prettier": "7.2.0",
     "eslint-plugin-prettier": "3.3.1",
@@ -57,6 +62,7 @@
     "slate": "0.60.2",
     "slate-history": "0.60.2",
     "slate-react": "0.60.2",
+    "start-server-and-test": "1.12.0",
     "tailwindcss": "2.0.2",
     "typescript": "4.1.3"
   }
