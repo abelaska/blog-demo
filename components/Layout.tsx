@@ -104,6 +104,7 @@ const PostMenuItem = ({ post, selected = false }: { post: Post; selected?: boole
       className={`space-y-1 px-8 py-3 whitespace-nowrap text-xs flex flex-col cursor-pointer ${
         selected ? 'bg-gray-200' : 'hover:bg-gray-100'
       }`}
+      data-cy="post-menu-item"
     >
       <div className="text-gray-400 font-semibold flex justify-between items-center">
         <div className="truncate">{post.title || defaultPostTitle}</div>
