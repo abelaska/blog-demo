@@ -1,4 +1,4 @@
-import { fetch, Response } from '@/common/client/common';
+import { fetch, Response } from '@/browser/client/common';
 import { apiAuthTokenUrl } from '@/common/urls';
 
 type LoginRequest = {

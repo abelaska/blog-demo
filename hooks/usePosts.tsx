@@ -1,12 +1,10 @@
 import { useRouter } from 'next/router';
 import { useSWRInfinite } from 'swr';
-import { fetcher, errorToMessage } from '@/common/client';
+import { fetcher, errorToMessage } from '@/browser/client';
 import { apiPostsUrl, urlWithQuery } from '@/common/urls';
 import { useNotify } from '@/components/Notifications';
 
-const take = 20;
-
-export const usePosts = () => {
+export const usePosts = ({ take } = { take: 20 }) => {
   const router = useRouter();
   const { notifyError } = useNotify();
 

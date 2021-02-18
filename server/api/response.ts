@@ -1,5 +1,5 @@
 import { NextApiResponse } from 'next';
-import { ErrorCode } from '@/common/client/errors';
+import { ErrorCode } from '@/browser/client/errors';
 
 export const replyWithError = (res: NextApiResponse, code: ErrorCode, message?: string) =>
   res.json({ ok: false, error: { code, message } });

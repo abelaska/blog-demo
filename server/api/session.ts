@@ -1,17 +1,20 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { JwtSession } from '@/common/token';
-import { requestToSession } from '@/common/api/token';
-import { replyWithError } from '@/common/api/response';
+import { JwtSession, validateJwt } from '@/server/jwt';
+import { extractBearerToken } from '@/server/bearer';
+import { replyWithError } from '@/server/api/response';
 
 export type SessionContext = {
   session: JwtSession;
-
-  // http
   req: NextApiRequest;
   res: NextApiResponse;
 };
 
 export type SessionRequestHandler = (context: SessionContext) => Promise<void>;
+
+export const requestToSession = (req: NextApiRequest): JwtSession | null => {
+  const token = extractBearerToken(req);
+  return (token && validateJwt(token)) || null;
+};
 
 export const sessionProtected = (handler: SessionRequestHandler) => async (
   req: NextApiRequest,

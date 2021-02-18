@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { isNotValidRequestQuery, replyWithSuccess, replyWithError } from '@/common/api';
-import { maxTake, minTake, defaultTake } from '@/common/client/post';
+import { isNotValidRequestQuery, replyWithSuccess, replyWithError } from '@/server/api';
+import { maxTake, minTake, defaultTake } from '@/browser/client/post';
 import { prisma, Prisma, stringToCursor, cursorToString } from '@/prisma';
 
 //

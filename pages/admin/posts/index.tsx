@@ -1,10 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { getLayout } from '@/components/Layout';
+import { getLayout } from '@/components/layout/admin/Layout';
 import { PrimaryButton } from '@/components/Button';
 import { IconChevronLeft } from '@/components/Icons';
-import { LayoutContent } from '@/components/LayoutContent';
+import { LayoutContent } from '@/components/layout/admin';
 
 export default function PostsPage() {
   const router = useRouter();

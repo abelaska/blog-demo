@@ -1,12 +1,10 @@
-import { fetch, Response, ResponseWithNoPayload } from '@/common/client/common';
+import { fetch, Response, ResponseWithNoPayload } from '@/browser/client/common';
 import { apiPostUrl, apiPostsUrl } from '@/common/urls';
-import { Post } from '@/prisma';
+import type { Post } from '@/prisma';
 
 export const maxTake = 100;
 export const minTake = 1;
 export const defaultTake = 20;
-
-export const maxPostBodyLength = 60000;
 
 type PostCreateRequest = {
   body: string;

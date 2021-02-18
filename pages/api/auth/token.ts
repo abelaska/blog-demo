@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { createJwt } from '@/common/token';
-import { isNotValidRequestBody, replyWithError, replyWithSuccess } from '@/common/api';
+import { createJwt } from '@/server/jwt';
+import { isNotValidRequestBody, replyWithError, replyWithSuccess } from '@/server/api';
 
 const adminPassword = process.env.ADMIN_PASSWORD || 'password';
 

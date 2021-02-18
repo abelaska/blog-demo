@@ -1,27 +1,9 @@
 import React from 'react';
-import Link from 'next/link';
-import type { Post } from '@/prisma';
 import { useFeed } from '@/hooks/useFeed';
-import { fromNow } from '@/common/time';
-import { defaultPostTitle } from '@/common/post';
-import { getLayout } from '@/components/LayoutPublic';
+import { getLayout } from '@/components/layout/public';
 import { LoadingBlock } from '@/components/LoadingBlock';
 import { WhiteButton, PrimaryButton } from '@/components/Button';
-
-const PostMenuItem = ({ post }: { post: Post }) => (
-  <Link href={`/${post.slug}`}>
-    <div className="space-y-1 py-8 whitespace-nowrap text-xs flex flex-col cursor-pointer group">
-      <div className="flex items-baseline">
-        <div className="text-gray-500 text-base font-semibold truncate group-hover:underline">
-          {post.title || defaultPostTitle}
-        </div>
-        <div className="ml-3 text-gray-300 text-md font-light">{fromNow(post.updatedAt)}</div>
-      </div>
-      <div className="text-gray-400 text-sm truncate">{post.excerpt}</div>
-    </div>
-  </Link>
-);
-
+import { PostLinkBlock } from '@/components/PostLinkBlock';
 export default function IndexPage() {
   const { posts, isMore, isLoading, isRefreshing, loadMore } = useFeed();
   const inProgress = isLoading || isRefreshing;
@@ -44,7 +26,7 @@ export default function IndexPage() {
       <div className="max-w-4xl mx-auto px-8">
         <div className="flex flex-col">
           {posts.map((post) => (
-            <PostMenuItem key={post.id} post={post} />
+            <PostLinkBlock key={post.id} post={post} />
           ))}
         </div>
       </div>

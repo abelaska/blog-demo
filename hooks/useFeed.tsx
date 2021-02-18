@@ -1,11 +1,9 @@
 import { useSWRInfinite } from 'swr';
-import { fetcher, errorToMessage } from '@/common/client';
+import { fetcher, errorToMessage } from '@/browser/client';
 import { apiFeedUrl, urlWithQuery } from '@/common/urls';
 import { useNotify } from '@/components/Notifications';
 
-const take = 5;
-
-export const useFeed = () => {
+export const useFeed = ({ take } = { take: 5 }) => {
   const { notifyError } = useNotify();
   const { data, error, mutate, size, setSize, isValidating } = useSWRInfinite((pageIndex, previousPageData) => {
     if (previousPageData && !previousPageData.posts) {

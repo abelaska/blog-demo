@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import { NotificationsProvider } from '@/components/Notifications';
-import { NextPageWithLayout } from '@/components/Layout';
+import { NextPageWithLayout } from '@/components/layout';
 import { UserProvider } from '@/hooks/useUser';
 
 import '@/styles/index.css';

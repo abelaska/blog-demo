@@ -5,9 +5,10 @@ import {
   replyWithSuccess,
   sessionProtected,
   SessionContext,
-} from '@/common/api';
-import { maxTake, minTake, defaultTake, maxPostBodyLength } from '@/common/client/post';
-import { extractMeta } from '@/common/post';
+} from '@/server/api';
+import { maxPostBodyLength } from '@/common/post';
+import { maxTake, minTake, defaultTake } from '@/browser/client/post';
+import { extractMeta } from '@/server/post';
 
 //
 const apiCreatePostSchema = {

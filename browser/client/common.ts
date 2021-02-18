@@ -1,6 +1,6 @@
 import ky from 'ky-universal';
-import { ErrorCode } from '@/common/client/errors';
-import { loadToken } from '@/common/client/token';
+import { ErrorCode } from '@/browser/client/errors';
+import { loadToken } from '@/browser/token';
 
 export type Response<T> = {
   ok: boolean;

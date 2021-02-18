@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { validateSchema, EndpointSchema, replyWithError } from '@/common/api';
+import { validateSchema, EndpointSchema, replyWithError } from '@/server/api';
 
 const validate = (obj: any, res: NextApiResponse, schema: EndpointSchema): boolean => {
   const { valid, error } = validateSchema(schema, obj);

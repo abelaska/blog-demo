@@ -1,25 +1,18 @@
 import React, { ReactNode } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useUser } from '@/hooks/useUser';
 import { WhiteButton, IconButton } from '@/components/Button';
 import { IconLogout } from '@/components/Icons';
 
-type GetLayoutFunc = (page: React.ReactElement) => React.ReactElement;
-
-export type NextPageWithLayout = NextPage & {
-  getLayout: GetLayoutFunc;
-};
-
-type Props = {
+export type LayoutProps = {
   title?: string;
   children?: ReactNode;
   childrenTitle?: string;
 };
 
-export default function Layout({ children, title = 'Blog' }: Props) {
+export default function Layout({ children, title = 'Blog' }: LayoutProps) {
   const router = useRouter();
   const { token, logout } = useUser();
   const loggedIn = !!token;

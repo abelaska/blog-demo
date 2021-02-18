@@ -5,17 +5,18 @@ import { useRouter } from 'next/router';
 import { Descendant } from 'slate';
 import { ReactEditor } from 'slate-react';
 import useSWR, { mutate as mutateSWR } from 'swr';
-import { Post } from '@/prisma';
 import { usePosts } from '@/hooks/usePosts';
 import { apiPostUrl } from '@/common/urls';
-import { client, fetcher, errorToMessage } from '@/common/client';
+import { cloneDeep } from '@/common/utils';
 import { EMPTY, Document, MetaBlock, BlockType } from '@/common/editor';
-import { getLayout } from '@/components/Layout';
+import { client, fetcher, errorToMessage } from '@/browser/client';
+import { getLayout } from '@/components/layout/admin/Layout';
 import { useNotify } from '@/components/Notifications';
-import { LayoutContent } from '@/components/LayoutContent';
+import { LayoutContent } from '@/components/layout/admin';
 import { createPostEditor } from '@/components/PostEditor';
 import { IconButton, PrimaryButton } from '@/components/Button';
 import { IconSpiner, IconChevronLeft, IconTrash } from '@/components/Icons';
+import type { Post } from '@/prisma';
 
 type ProgressType = 'SAVING' | 'DELETING';
 
@@ -23,8 +24,6 @@ type ProgressType = 'SAVING' | 'DELETING';
 const PostEditor = dynamic(() => import('@/components/PostEditor'), {
   ssr: false,
 });
-
-const cloneDeep = (o) => JSON.parse(JSON.stringify(o));
 
 let saveTimer;
 export default function PostPage(props: any) {

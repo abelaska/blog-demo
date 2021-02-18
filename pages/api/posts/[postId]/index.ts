@@ -5,9 +5,9 @@ import {
   SessionContext,
   replyWithError,
   replyWithSuccess,
-} from '@/common/api';
-import { extractMeta } from '@/common/post';
-import { maxPostBodyLength } from '@/common/client/post';
+} from '@/server/api';
+import { extractMeta } from '@/server/post';
+import { maxPostBodyLength } from '@/common/post';
 
 type PostContext = SessionContext & {
   postId: number;

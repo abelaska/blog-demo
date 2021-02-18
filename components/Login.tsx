@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useUser } from '@/hooks/useUser';
-import { client, errorToMessage } from '@/common/client';
+import { client, errorToMessage } from '@/browser/client';
 import { PrimaryButton } from '@/components/Button';
 
 export const Login = () => {

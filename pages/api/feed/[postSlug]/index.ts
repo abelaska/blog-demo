@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { prisma } from '@/prisma';
-import { replyWithError, replyWithSuccess } from '@/common/api';
+import { replyWithError, replyWithSuccess } from '@/server/api';
 
 //
 const getPublishedPost = async (req: NextApiRequest, res: NextApiResponse) => {

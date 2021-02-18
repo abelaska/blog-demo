@@ -1,28 +1,15 @@
 import React from 'react';
-import escapeHtml from 'escape-html';
 import { useRouter } from 'next/router';
 import useSWR from 'swr';
-import { Post } from '@/prisma';
-import { fetcher } from '@/common/client';
+import { postToJSX } from '@/components/Post';
+import { fetcher } from '@/browser/client';
 import { apiFeedPostUrl } from '@/common/urls';
 import { fromNow } from '@/common/time';
 import { defaultPostTitle } from '@/common/post';
-import { Block, BlockType } from '@/common/editor';
 import { LoadingBlock } from '@/components/LoadingBlock';
 import { IconButton } from '@/components/Button';
 import { IconPencil } from '@/components/Icons';
-import { getLayout } from '@/components/LayoutPublic';
-
-const blockToJSX = (block: Block): JSX.Element => {
-  const children = block?.children.map(({ text }) => escapeHtml(text)) || null;
-  switch (block.type) {
-    case BlockType.PARAGRAPH:
-      return <p className="mb-6">{children}</p>;
-  }
-};
-
-const postToJSX = (post: Post): Array<JSX.Element> => JSON.parse(post.body).map(blockToJSX);
-
+import { getLayout } from '@/components/layout/public';
 export default function PublicPostPage(props: any) {
   const router = useRouter();
   const postSlug = router?.query?.postSlug as string;
