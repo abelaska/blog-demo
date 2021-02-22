@@ -31,3 +31,7 @@ Run unit and E2E tests in CI mode:
 ```
 yarn && yarn test:ci
 ```
+
+# TODO
+
+- add more unit and Cypress tests
